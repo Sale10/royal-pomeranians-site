@@ -1,0 +1,479 @@
+/* --- Global Styles & Custom Reset --- */
+:root {
+    --bg-cream: #F9F6F1;
+    --primary-gold: #D4AF37;
+    --dark-text: #333333;
+    --secondary-tan: #E5C07B;
+    --panel-border: 1px solid #E5E0DA;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lora', serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-cream);
+    color: var(--dark-text);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--dark-text);
+    font-weight: 700;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Layout Utility Classes --- */
+main {
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 0 40px;
+}
+
+.text-block {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.border-custom {
+    border: 2px solid var(--primary-gold);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-title h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.title-divider {
+    height: 3px;
+    background-color: var(--primary-gold);
+    width: 120px;
+    margin: 0 auto;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: #FFFFFF;
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #EAEAEA;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo a {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--primary-gold);
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary-gold);
+}
+
+/* --- Buttons --- */
+button, .cta-button, .details-link, .contact-button {
+    display: inline-block;
+    padding: 18px 45px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Primary Button Style (Gold Background, White Text) */
+button, .cta-button, .contact-button {
+    background-color: var(--primary-gold);
+    color: #FFFFFF;
+}
+
+button:hover, .cta-button:hover, .contact-button:hover {
+    filter: brightness(1.1);
+}
+
+/* Secondary Button Style (Transparent/Outlined) */
+.details-link {
+    background-color: transparent;
+    color: var(--primary-gold);
+    border: 2px solid var(--primary-gold);
+}
+
+.details-link:hover {
+    background-color: var(--primary-gold);
+    color: #FFFFFF;
+}
+
+/* --- Home Page (Hero) --- */
+.hero {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(135deg, #FFFCF7 0%, #F9F6F1 100%);
+    text-align: center;
+    border: 3px solid var(--secondary-tan);
+    margin-bottom: 100px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+}
+
+/* --- Home Page (Featured Puppies) --- */
+.puppy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-bottom: 120px;
+}
+
+.puppy-card {
+    background-color: #FFFFFF;
+    border: var(--panel-border);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.puppy-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.puppy-card img {
+    border-radius: 10px;
+    border: 2px solid var(--secondary-tan);
+    margin-bottom: 25px;
+}
+
+.puppy-card h3 {
+    margin-bottom: 10px;
+}
+
+.puppy-card p {
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* --- Available Puppies Page --- */
+.puppy-profiles {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.puppy-detail-card {
+    background-color: #FFFFFF;
+    display: flex;
+    border: var(--panel-border);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+.puppy-detail-card img {
+    width: 40%;
+    object-fit: cover;
+    border-right: var(--panel-border);
+}
+
+.puppy-info {
+    width: 60%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.puppy-info h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.puppy-specs {
+    border-top: var(--panel-border);
+    border-bottom: var(--panel-border);
+    padding: 20px 0;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.puppy-info p {
+    margin-bottom: 40px;
+}
+
+/* --- About Page --- */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-content .text-block {
+    flex: 2;
+    padding: 0;
+}
+
+.about-content .image-block {
+    flex: 1;
+}
+
+.image-placeholder {
+    height: 400px;
+    width: 400px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+}
+
+/* --- Health Guarantee Page --- */
+.health-content p, .health-content ul {
+    margin-bottom: 30px;
+}
+
+.health-content h3 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.health-content h3:first-child {
+    margin-top: 0;
+}
+
+.health-content ul li {
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+/* --- Gallery Page --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item {
+    border: var(--panel-border);
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+}
+
+.gallery-item img {
+    height: 450px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery-item p {
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+    font-style: italic;
+    color: #666;
+}
+
+/* --- FAQ Page --- */
+.faq-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.accordion {
+    background-color: #FFFFFF;
+    color: var(--dark-text);
+    cursor: pointer;
+    padding: 30px;
+    width: 100%;
+    border: var(--panel-border);
+    border-radius: 5px;
+    text-align: left;
+    outline: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: none;
+    letter-spacing: normal;
+    margin-bottom: 10px;
+}
+
+.active, .accordion:hover {
+    background-color: var(--secondary-tan);
+    color: var(--dark-text);
+}
+
+.accordion:after {
+    content: '\002B';
+    color: var(--primary-gold);
+    font-weight: bold;
+    float: right;
+    margin-left: 10px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 30px;
+    background-color: #FFFFFF;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-bottom: 20px;
+}
+
+.panel p {
+    padding: 30px 0;
+}
+
+/* --- Contact Page --- */
+.contact-page {
+    text-align: center;
+}
+
+.direct-email a {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    margin-top: 30px;
+    display: block;
+}
+
+.contact-form-section {
+    max-width: 700px;
+    margin: 80px auto 0 auto;
+    text-align: left;
+}
+
+form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input[type=text], input[type=email], textarea {
+    width: 100%;
+    padding: 18px;
+    border: var(--panel-border);
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background-color: #FFFFFF;
+}
+
+input[type=text]:focus, input[type=email]:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #333333;
+    color: #FFFFFF;
+    padding: 80px 60px;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.footer-contact a {
+    color: var(--secondary-tan);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.footer-bottom p {
+    margin-top: 40px;
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1100px) {
+    .section-title h2 { font-size: 2.5rem; }
+    .hero-content h1 { font-size: 3rem; }
+    .puppy-detail-card { flex-direction: column; }
+    .puppy-detail-card img, .puppy-info { width: 100%; }
+    .puppy-detail-card img { border-right: none; border-bottom: var(--panel-border); }
+    .about-content { flex-direction: column; }
+    .image-placeholder { width: 100%; height: 300px; }
+}
+
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 20px; padding: 20px; }
+    nav ul { gap: 15px; font-size: 0.95rem; }
+    .logo a { font-size: 1.8rem; }
+    main { padding: 0 20px; margin: 40px auto; }
+    .text-block { padding: 40px 20px; }
+    .section-title { margin-bottom: 50px; }
+    .hero { height: 60vh; }
+    .hero-content h1 { font-size: 2.2rem; }
+    .puppy-grid { grid-template-columns: 1fr; }
+    .puppy-card img, .gallery-item img { height: 300px; }
+}
